@@ -1,0 +1,43 @@
+CorrelationId: 1ee3243c-074c-44f6-9e7b-a2103c5c1380
+UTC DateTime: 08/16/2024 15:11:29
+
+The following files/folders have not been downloaded
+0. myVenv/Lib/site-packages/pip/_vendor/chardet/sjisprober.py
+1. myVenv/Lib/site-packages/pip/_vendor/chardet/universaldetector.py
+2. myVenv/Lib/site-packages/pip/_vendor/chardet/utf1632prober.py
+3. myVenv/Lib/site-packages/pip/_vendor/chardet/utf8prober.py
+4. myVenv/Lib/site-packages/pip/_vendor/chardet/version.py
+5. myVenv/Lib/site-packages/pip/_vendor/colorama
+6. myVenv/Lib/site-packages/pip/_vendor/distlib
+7. myVenv/Lib/site-packages/pip/_vendor/distro
+8. myVenv/Lib/site-packages/pip/_vendor/idna
+9. myVenv/Lib/site-packages/pip/_vendor/msgpack
+10. myVenv/Lib/site-packages/pip/_vendor/packaging
+11. myVenv/Lib/site-packages/pip/_vendor/pkg_resources
+12. myVenv/Lib/site-packages/pip/_vendor/platformdirs
+13. myVenv/Lib/site-packages/pip/_vendor/pygments
+14. myVenv/Lib/site-packages/pip/_vendor/pyparsing
+15. myVenv/Lib/site-packages/pip/_vendor/pyproject_hooks
+16. myVenv/Lib/site-packages/pip/_vendor/requests
+17. myVenv/Lib/site-packages/pip/_vendor/resolvelib
+18. myVenv/Lib/site-packages/pip/_vendor/rich
+19. myVenv/Lib/site-packages/pip/_vendor/tenacity
+20. myVenv/Lib/site-packages/pip/_vendor/tomli
+21. myVenv/Lib/site-packages/pip/_vendor/truststore
+22. myVenv/Lib/site-packages/pip/_vendor/urllib3
+23. myVenv/Lib/site-packages/pip/_vendor/webencodings
+24. myVenv/Lib/site-packages/pip/_vendor/six.py
+25. myVenv/Lib/site-packages/pip/_vendor/typing_extensions.py
+26. myVenv/Lib/site-packages/pip/_vendor/vendor.txt
+27. myVenv/Lib/site-packages/pip/__main__.py
+28. myVenv/Lib/site-packages/pip/__pip-runner__.py
+29. myVenv/Lib/site-packages/pip/py.typed
+30. myVenv/Lib/site-packages/pip-23.2.1.dist-info
+31. myVenv/Lib/site-packages/pip-24.0.dist-info
+32. myVenv/Lib/site-packages/python_gettext-5.0.dist-info
+33. myVenv/Lib/site-packages/pythongettext
+34. myVenv/Lib/site-packages/sqlparse
+35. myVenv/Lib/site-packages/sqlparse-0.5.0.dist-info
+36. myVenv/Lib/site-packages/tzdata
+37. myVenv/Lib/site-packages/tzdata-2024.1.dist-info
+38. myVenv/Scripts

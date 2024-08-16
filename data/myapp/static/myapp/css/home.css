@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #00b351;
+    color: #fff;
+}
+.header h1 {
+    margin: 0;
+}
+.header a {
+    margin-left: auto;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00b351;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+h2 {
+    text-align: center;
+    color: #333;
+}
+.pet-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+.pet-card img {
+    margin-right: 20px;
+    border-radius: 4px;
+}
+.pet-card p {
+    margin: 0;
+    font-weight: bold;
+    color: #555;
+}
+.pet-card form {
+    margin-left: auto;
+}
+.pet-card button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.pet-card button:hover {
+    background-color: #45a049;
+}
+.no-pets {
+    text-align: center;
+    color: #777;
+    font-size: 18px;
+}
+.logout-button {
+    background-color:#4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; 
+    margin-left: 90%; 
+    margin-top: 1%;
+} 
+.add-button{
+    background-color:#4CAF50;
+}
+
+.logout-button:hover {
+    background-color: #45a049;
+} 
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

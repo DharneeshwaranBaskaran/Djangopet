@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets</title> 
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/css/home.css' %}">
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .search-input, .select-category {
+            margin: 10px;
+        }
+    </style>
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+        function deleteCookie(name) {
+            document.cookie = name + '=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const username = getCookie('username');
+            if (!username) {
+                window.location.href = "{% url 'login' %}"; 
+            }
+            document.querySelector('.logout-button').addEventListener('click', function(event) {
+                event.preventDefault(); 
+                deleteCookie('username');
+                window.location.href = "{% url 'logout' %}"; 
+            });
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>  
+        
+    </header>
+    <div class="container">
+        Want To add Pets?<a href="{% url 'add_pet' %}" >Add Pet</a> 
+        <h2>Pets</h2>
+        <form method="get" action="" class="form-container">
+            <div class="search-input">
+                <input type="text" name="search" placeholder="Search by pet name..." value="{% if query %}{{ query }}{% endif %}">
+                <button type="submit">Search</button>
+            </div>
+            <div class="select-category">
+                <select name="category" id="category" onchange="this.form.submit()">
+                    <option value="">All</option>
+                    <option value="Fish" {% if selected_category == 'Fish' %}selected{% endif %}>Fish</option>
+                    <option value="Dog" {% if selected_category == 'Dog' %}selected{% endif %}>Dog</option>
+                </select>
+            </div>
+        </form>
+        <br>
+        {% block content %}
+            {% if pets %}
+                {% for pet in pets %}
+                    <div class="pet-card">
+                        <img src="{{ pet.url }}" alt="{{ pet.name }}" width="50" height="60">
+                        <p>{{ pet.id }} - {{ pet.name|capfirst }}</p>
+                        <form action="{% url 'store_id' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="pet_id" value="{{ pet.id }}">
+                            <button type="submit">View</button>
+                        </form> 
+                        <form action="{% url 'remove_pet' %}" method="post" style="margin-left: 10px;">
+                            {% csrf_token %}
+                            <input type="hidden" name="pet_id" value="{{ pet.id }}">
+                            <button type="submit" class="remove-button">Remove</button>
+                        </form>
+                    
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-pets">No pets found.</p>
+            {% endif %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Site</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/css/store.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Pet ID from cookie: {{ request.COOKIES.pet_id }}</h1> 
+        <a href="/home">Back</a>
+    </header>
+    <nav>
+        <div class="image-container">
+            <img src="{{ required_pet.url }}" alt="{{ required_pet.url }}" class="zoom-image" id="zoom"> 
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/2.2.3/jquery.elevatezoom.min.js"></script>
+            <script>
+                $("#zoom").elevateZoom({
+                    zoomType: "lens",
+                    lensShape: "round",
+                    lensSize: 200
+                }); 
+            </script>
+        </div>
+        <ul> 
+            <li>Name: {{ required_pet.name }}</li>
+            <li>Age: {{ required_pet.age }}</li>
+            <li>Breed: {{ required_pet.breed }}</li>
+            <li>Weight: {{ required_pet.weight }}</li>
+            <li>{{ required_pet.like }} like this and {{ required_pet.dislike }} don't like this</li>
+        </ul>
+        <h2>ADD YOUR COMMENT</h2>
+        <div class="like-dislike-container">
+            <button class="like-dislike-button" id="like" data-action="like">
+                <i class="fas fa-thumbs-up"></i> Like
+            </button>
+            <button class="like-dislike-button" id="dislike" data-action="dislike">
+                <i class="fas fa-thumbs-down"></i> Dislike
+            </button>
+        </div>
+    </nav>
+
+    <script>
+        $(document).ready(function () {
+            $('.like-dislike-button').click(function () {
+                var action = $(this).data('action');
+                var pet_id = '{{ required_pet.id }}';
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "update_like_dislike" %}',
+                    data: {
+                        'pet_id': pet_id,
+                        'action': action,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            location.reload(); 
+                        } else {
+                            alert('There was an error updating your preference. Please try again.');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
